@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language='JavaScript'>
+        var tulisan=".::::. Keiza  | kalkulator sederhana ";
+        var kecepatan=100;var fress=null;function jalan() { document.title=tulisan;
+        tulisan=tulisan.substring(1,tulisan.length)+tulisan.charAt(0);
+        fress=setTimeout("jalan()",kecepatan);}jalan();
+        </script>
+        <style>
+        *{
+          margin: 0;
+          padding: 0;
+          font-family: 'Poppins', sans-serif;
+          box-sizing: border-box;
+      }
+      
+      .container {
+          width: 100%;
+          height: 100vh;
+          background: #5fdcff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      
+      .calculator {
+          background: #5629be;
+          padding: 20px;
+          border-radius: 10px;
+           
+      }
+      
+      .calculator form input {
+          border: 0;
+          outline: 0;
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+          
+          background: transparent;
+          font-size: 20px;
+          color: #fff;
+          cursor: pointer;
+          margin: 10px;
+      }
+      
+      form .display {
+          display: flex;
+          justify-content: flex-end;
+          margin: 20px 0;
+      }
+      
+      form .display input {
+          text-align: right;
+          flex: 1;
+          font-size: 45px;
+          box-shadow: none;
+      }
+      
+      form input.equal {
+          width: 145px;
+      }
+      
+      form input.operator {
+          color: #33ffd8;
+      }
+      
+      input[type="button"] {
+          transition:      .3s;
+      }
+      
+      input[type="button"]:active {
+          transform: scale(0.9);
+      }
+      
+      input[type="button"]:hover {
+          background-color: #e3f9ff;
+          color: black;
+          transition: background-color .3s;
+      }
+      #historyContainer {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #230c0c;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0,1);
+
+      }
+
+      #historyContainer h2 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: rgb(165, 114, 71);
+
+      }
+      #historyTextContainer {
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      #historyTextContainer p {
+        margin-bottom: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #f46060;
+      }
+      </style>
+    
+</head>
+<body>
+  
+  <div class="col-md-6 d-flex justify-content-end">
+    
+  </div>
+  
+
+  <div class="container">
+      <div class="calculator">
+        <form>
+          <div class="display">
+            <input type="text" name="display" id="display" />
+          </div>
+          <div>
+            <input type="button" value="AC" onclick="clearDisplay()" class="operator" />
+            <input type="button" value="DEL" onclick="deleteLast()" class="operator" />
+            <input type="button" value="." onclick="appendValue('.')" class="operator" />
+            <input type="button" value="/" onclick="appendOperator('/')" class="operator" />
+          </div>
+          <div>
+            <input type="button" value="7" onclick="appendValue('7')" />
+            <input type="button" value="8" onclick="appendValue('8')" />
+            <input type="button" value="9" onclick="appendValue('9')" />
+            <input type="button" value="*" onclick="appendOperator('*')" class="operator" />
+          </div>
+          <div>
+            <input type="button" value="4" onclick="appendValue('4')" />
+            <input type="button" value="5" onclick="appendValue('5')" />
+            <input type="button" value="6" onclick="appendValue('6')" />
+            <input type="button" value="-" onclick="appendOperator('-')" class="operator" />
+          </div>
+          <div>
+            <input type="button" value="1" onclick="appendValue('1')" />
+            <input type="button" value="2" onclick="appendValue('2')" />
+            <input type="button" value="3" onclick="appendValue('3')" />
+            <input type="button" value="+" onclick="appendOperator('+')" class="operator" />
+          </div>
+          <div>
+            <input type="button" value="00" onclick="appendValue('00')" />
+            <input type="button" value="0" onclick="appendValue('0')" />
+            <input type="button" value="%" onclick="calculatePercentage()" />
+            <input type="button" value="=" onclick="calculate()" class="operator" />
+          </div>
+           
+        <h2>History</h2>
+        <div id="historyTextContainer"></div>
+      </div>
+        </form>
+      </div>
+      
+     
+    
+      
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
